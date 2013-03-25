@@ -11,7 +11,16 @@ class Create_Users_Table {
 			$table->string('email');
 			$table->string('password');
 			$table->timestamps();
-	});
+
+		});
+
+		$user = new User();
+		$user->name = 'owner';
+		$user->full_name = 'new owner';
+		$user->email = 'owner@website.tld';
+		$user->password = Hash::make('password');
+		$user->save();
+		echo 'things';
 
     }    
 

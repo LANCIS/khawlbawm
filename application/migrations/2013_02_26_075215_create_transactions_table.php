@@ -14,7 +14,7 @@ class Create_Transactions_Table {
 			$table->text('particulars');
 			$table->text('type'); // income, expected_income, expenditure, credit
 			$table->text('source')->nullable();
-			$table->decimal('amount', '10,2');
+			$table->decimal('amount', '10','2');
 			$table->text('notes')->nullable();
 			$table->date('date');
 			$table->boolean('deleted')->default(false);
