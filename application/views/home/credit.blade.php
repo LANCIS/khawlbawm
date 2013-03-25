@@ -6,7 +6,7 @@
 
 		<div class="control-group{{ $errors->has('particulars') ?' error':''}}">
 			<div class='controls'>
-				{{Form::text('particulars', Input::old('particulars'), array('id'=>'particulars', 'placeholder'=>'Particulars', 'class'=>'input-xxlarge', 'title'=> ($errors->has('particulars') ?  $errors->first('particulars', ':message') : 'Particulars of Income') ))}}
+				{{Form::text('particulars', Input::old('particulars'), array('id'=>'particulars', 'placeholder'=>'Particulars', 'class'=>'input-xxlarge', 'title'=> ($errors->has('particulars') ?  $errors->first('particulars', ':message') : 'Particulars of Credit') ))}}
 			</div>
 		</div>
 
@@ -14,18 +14,19 @@
 			<div class='controls'>
 				<span class="input input-prepend control-group{{ $errors->has('amount') ?' error':''}}">
 					<span class="add-on">Rs</span>
-					{{Form::text('amount', Input::old('amount'), array('id'=>'amount', 'placeholder'=>'Amount', 'class'=>'input-medium', 'title'=> ($errors->has('amount') ?  $errors->first('amount', ':message') : 'Amount of Income') ))}}
+					{{Form::text('amount', Input::old('amount'), array('id'=>'amount', 'placeholder'=>'Amount', 'class'=>'input-medium', 'title'=> ($errors->has('amount') ?  $errors->first('amount', ':message') : 'Amount of Credit') ))}}
 				</span>
 				&nbsp;
+				<?php $today = date('Y-m-d',time()); ?>
 				<span class="control-group{{ $errors->has('date') ?' error':''}}">
-					{{Form::text('date', Input::old('date'), array('readonly'=>'readonly', 'id'=>'date', 'placeholder'=>'Date', 'class'=>'input-medium', 'title'=> ($errors->has('date') ?  $errors->first('date', ':message') : 'Date of Income') ))}}
+					{{Form::text('date', Input::old('date',$today), array('readonly'=>'readonly', 'id'=>'date', 'placeholder'=>'Date', 'class'=>'input-medium', 'title'=> ($errors->has('date') ?  $errors->first('date', ':message') : 'Date of Credit') ))}}
 				</span>
 			</div>
 		</div>
 
 		<div class="control-group{{ $errors->has('notes') ?' error':''}}">
 			<div class='controls'>
-				{{Form::textarea('notes', Input::old('notes'), array('id'=>'notes', 'placeholder'=>'notes', 'class'=>'input-xxlarge', 'rows'=>'3', 'title'=> ($errors->has('notes') ?  $errors->first('notes', ':message') : 'Optional notes on Income') ))}}
+				{{Form::textarea('notes', Input::old('notes'), array('id'=>'notes', 'placeholder'=>'notes', 'class'=>'input-xxlarge', 'rows'=>'3', 'title'=> ($errors->has('notes') ?  $errors->first('notes', ':message') : 'Optional notes on Credit') ))}}
 			</div>
 		</div>
 
