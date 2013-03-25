@@ -35,8 +35,3 @@ nbproject
 .idea
 node_modules
 dist
-
-#database setting
-database.php
-
-uploads
