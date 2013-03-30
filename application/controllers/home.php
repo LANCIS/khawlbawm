@@ -78,17 +78,23 @@ class Home_Controller extends Base_Controller
 
 		if($validation->fails())
 		{
-			return Redirect::to('/income')->with_errors($validation)->with_input();
+			return Redirect::to('/'.Input::get('type').'')->with_errors($validation)->with_input();
 		}
 		else
 		{
+			if(Item::where('name','=',Input::get('particulars'))->count() == 0){
+				$item = new Item();
+				$item->name = Input::get('particulars');
+				$item->save();	
+			}
+
 			$transaction = new Transaction;
 			$transaction->particulars = Input::get('particulars');
 			$transaction->source = Input::get('source');
 			$transaction->type = Input::get('type');
 			$transaction->amount = Input::get('amount');
 			$transaction->notes = Input::get('notes');
-			$transaction->date = Input::get('date')." 00:00:00";
+			$transaction->date = date('Y-m-d h:i:s',strtotime(Input::get('date')));
 			$transaction->user_id = Auth::user()->id;
 			$transaction->save();
 

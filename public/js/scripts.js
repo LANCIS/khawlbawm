@@ -22,12 +22,9 @@ $(function(){
 		'trigger': 'focus'
 	});
 
-	$("#date, #date_from, #date_to").datepicker({
-		format: 'yyyy-mm-dd'
-	}).on('changeDate', function(ev)
-	{
-        $('#date').datepicker('hide');
-        $('#date_from').datepicker('hide');
-        $('#date_to').datepicker('hide');
-    });
+	$("#date, #date_from, #date_to").closest('.input-append').datetimepicker({
+		format: 'yyyy-MM-dd HH:mm PP',
+		pickSeconds:false,
+		pick12HourFormat:true
+	});
 });

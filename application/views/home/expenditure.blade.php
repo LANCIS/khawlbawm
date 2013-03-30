@@ -17,9 +17,10 @@
 					{{Form::text('amount', Input::old('amount'), array('id'=>'amount', 'placeholder'=>'Amount', 'class'=>'input-medium', 'title'=> ($errors->has('amount') ?  $errors->first('amount', ':message') : 'Amount of Income') ))}}
 				</span>
 				&nbsp;
-				<?php $today = date('Y-m-d',time()); ?>
-				<span class="control-group{{ $errors->has('date') ?' error':''}}">
+				<?php $today = date('Y-m-d h:i A',time()); ?>
+				<span class="control-group input-append {{ $errors->has('date') ?' error':''}}">
 					{{Form::text('date', Input::old('date',$today), array('readonly'=>'readonly', 'id'=>'date', 'placeholder'=>'Date', 'class'=>'input-medium', 'title'=> ($errors->has('date') ?  $errors->first('date', ':message') : 'Date of Income') ))}}
+					<span class="add-on"><i data-date-icon="icon-calendar" data-time-icon="icon-time" /></i></span>
 				</span>
 			</div>
 		</div>
